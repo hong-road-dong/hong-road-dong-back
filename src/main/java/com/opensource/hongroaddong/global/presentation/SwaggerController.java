@@ -7,6 +7,11 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Controller
 public class SwaggerController {
+    @Bean
+    public InternalResourceViewResolver defaultViewResolver() {
+        return new InternalResourceViewResolver();
+    }
+
     @GetMapping("/swagger")
     public String swagger() {
         return "redirect:/swagger-ui/index.html";
