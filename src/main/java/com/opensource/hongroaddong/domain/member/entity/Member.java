@@ -2,7 +2,6 @@ package com.opensource.hongroaddong.domain.member.entity;
 
 import com.opensource.hongroaddong.domain.car.entity.Car;
 import com.opensource.hongroaddong.domain.item.entity.Item;
-import com.opensource.hongroaddong.domain.video.entity.Video;
 import com.opensource.hongroaddong.global.entity.BaseEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -47,9 +46,6 @@ public class Member extends BaseEntity {
     private Double manners;
     private Double sensibility;
     private Double safety;
-
-    @OneToMany(mappedBy = "member", fetch = LAZY, cascade = ALL, orphanRemoval = true)
-    Set<Video> videos = new HashSet<>();
 
     @OneToMany(mappedBy = "member", fetch = LAZY, cascade = ALL, orphanRemoval = true)
     Set<Item> items = new HashSet<>();

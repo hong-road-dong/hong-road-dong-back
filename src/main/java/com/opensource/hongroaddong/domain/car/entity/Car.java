@@ -1,7 +1,6 @@
 package com.opensource.hongroaddong.domain.car.entity;
 
 import com.opensource.hongroaddong.domain.item.entity.Item;
-import com.opensource.hongroaddong.domain.video.entity.Video;
 import com.opensource.hongroaddong.global.entity.BaseEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
