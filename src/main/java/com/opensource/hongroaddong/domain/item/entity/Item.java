@@ -2,11 +2,14 @@ package com.opensource.hongroaddong.domain.item.entity;
 
 import com.opensource.hongroaddong.domain.car.entity.Car;
 import com.opensource.hongroaddong.domain.member.entity.Member;
-import com.opensource.hongroaddong.domain.video.entity.Video;
+import com.opensource.hongroaddong.domain.timestamp.entity.Timestamp;
 import com.opensource.hongroaddong.global.entity.BaseEntity;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import static jakarta.persistence.CascadeType.ALL;
 import static jakarta.persistence.FetchType.LAZY;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
@@ -18,7 +21,6 @@ public class Item extends BaseEntity {
     @Column(name = "item_id")
     private Long id;
 
-    // video 로부터 가져오는 것이 아니라 새롭게 생성되는 경우
     private String url;
 
     private String content;
@@ -31,8 +33,7 @@ public class Item extends BaseEntity {
     @JoinColumn(name = "car_id")
     private Car car;
 
-    @ManyToOne(fetch = LAZY)
-    @JoinColumn(name = "video_id")
-    private Video video;
+    @OneToMany(mappedBy = "video", fetch = LAZY, cascade = ALL, orphanRemoval = true)
+    private Set<Timestamp> timestamps = new HashSet<>();
 
 }

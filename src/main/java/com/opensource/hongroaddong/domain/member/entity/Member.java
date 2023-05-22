@@ -2,7 +2,6 @@ package com.opensource.hongroaddong.domain.member.entity;
 
 import com.opensource.hongroaddong.domain.car.entity.Car;
 import com.opensource.hongroaddong.domain.item.entity.Item;
-import com.opensource.hongroaddong.domain.video.entity.Video;
 import com.opensource.hongroaddong.global.entity.BaseEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -28,38 +27,30 @@ public class Member extends BaseEntity {
     private Long id;
 
     @NotNull
-    @Enumerated(EnumType.STRING)
-    private Role role;
-
-    @NotNull
-    private String provider;
-
-    @NotNull
     @Length(max = 24)
     private String name;
 
-    @NotNull
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    private String provider;
+
     private String profileImage;
 
-    @NotNull
     @Column(unique = true)
     private String accountEmail;
 
-    @NotNull
     @Length(max = 24)
     private String nickname;
 
-    @OneToMany(mappedBy = "member", fetch = LAZY, cascade = ALL, orphanRemoval = true)
-    Set<Video> videos = new HashSet<>();
+    private Double manners;
+    private Double sensibility;
+    private Double safety;
 
     @OneToMany(mappedBy = "member", fetch = LAZY, cascade = ALL, orphanRemoval = true)
-    Set<Item> items = new HashSet<>();
-
-    @ManyToMany(fetch = LAZY)
-    @JoinTable(
-            name = "member_car",
-            joinColumns = {@JoinColumn(name = "memberId", referencedColumnName = "member_id")},
-            inverseJoinColumns = {@JoinColumn(name = "carId", referencedColumnName = "car_id")})
     private Set<Car> cars = new HashSet<>();
+
+    @OneToMany(mappedBy = "member", fetch = LAZY, cascade = ALL, orphanRemoval = true)
+    private Set<Item> items = new HashSet<>();
 
 }
