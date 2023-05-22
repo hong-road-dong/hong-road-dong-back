@@ -1,9 +1,9 @@
 package com.opensource.hongroaddong.domain.item.entity;
 
 import com.opensource.hongroaddong.domain.car.entity.Car;
+import com.opensource.hongroaddong.domain.common.BaseEntity;
 import com.opensource.hongroaddong.domain.member.entity.Member;
 import com.opensource.hongroaddong.domain.timestamp.entity.Timestamp;
-import com.opensource.hongroaddong.global.entity.BaseEntity;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
