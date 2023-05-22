@@ -44,6 +44,10 @@ public class Member extends BaseEntity {
     @Length(max = 24)
     private String nickname;
 
+    private Double manners;
+    private Double sensibility;
+    private Double safety;
+
     @OneToMany(mappedBy = "member", fetch = LAZY, cascade = ALL, orphanRemoval = true)
     Set<Video> videos = new HashSet<>();
 
