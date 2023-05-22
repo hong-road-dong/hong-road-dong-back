@@ -1,0 +1,32 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          kakao:
+            client-id: ${CLIENT_ID}
+            client-secret: ${CLIENT_SECRET}
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            client-authentication-method: POST
+            authorization-grant-type: authorization_code
+            scope:
+              - account_email
+              - profile_nickname
+              - profile_image
+            client-name: Kakao
+        provider:
+          kakao:
+            authorization-uri: https://kauth.kakao.com/oauth/authorize
+            token-uri: https://kauth.kakao.com/oauth/token
+            user-info-uri: https://kapi.kakao.com/v2/user/me
+            user-name-attribute: id
+
+server:
+  forward-headers-strategy: FRAMEWORK
+
+frontend:
+  redirectUri: https://hong-road-dong.github.io/hong-road-dong-front/login/oauth
+  authorizedRedirectUris: >
+    http://localhost:3000.*,
+    https://hong-road-dong.github.io/hong-road-dong-front.*,
+    https://.*hong-road-dong-front.vercel.app.*
