@@ -48,13 +48,9 @@ public class Member extends BaseEntity {
     private Double safety;
 
     @OneToMany(mappedBy = "member", fetch = LAZY, cascade = ALL, orphanRemoval = true)
-    Set<Item> items = new HashSet<>();
-
-    @ManyToMany(fetch = LAZY)
-    @JoinTable(
-            name = "member_car",
-            joinColumns = {@JoinColumn(name = "memberId", referencedColumnName = "member_id")},
-            inverseJoinColumns = {@JoinColumn(name = "carId", referencedColumnName = "car_id")})
     private Set<Car> cars = new HashSet<>();
+
+    @OneToMany(mappedBy = "member", fetch = LAZY, cascade = ALL, orphanRemoval = true)
+    private Set<Item> items = new HashSet<>();
 
 }
