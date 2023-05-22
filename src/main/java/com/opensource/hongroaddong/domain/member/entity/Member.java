@@ -28,24 +28,19 @@ public class Member extends BaseEntity {
     private Long id;
 
     @NotNull
-    @Enumerated(EnumType.STRING)
-    private Role role;
-
-    @NotNull
-    private String provider;
-
-    @NotNull
     @Length(max = 24)
     private String name;
 
-    @NotNull
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    private String provider;
+
     private String profileImage;
 
-    @NotNull
     @Column(unique = true)
     private String accountEmail;
 
-    @NotNull
     @Length(max = 24)
     private String nickname;
 
