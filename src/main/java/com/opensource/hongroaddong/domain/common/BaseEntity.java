@@ -1,4 +1,4 @@
-package com.opensource.hongroaddong.global.entity;
+package com.opensource.hongroaddong.domain.common;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
