@@ -1,4 +1,9 @@
 spring:
+  jpa:
+    show-sql: false
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
   datasource:
     url: ${DATASOURCE_URL}
     username: ${DATASOURCE_USERNAME}

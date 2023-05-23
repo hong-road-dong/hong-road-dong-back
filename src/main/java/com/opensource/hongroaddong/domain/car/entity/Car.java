@@ -2,7 +2,7 @@ package com.opensource.hongroaddong.domain.car.entity;
 
 import com.opensource.hongroaddong.domain.item.entity.Item;
 import com.opensource.hongroaddong.domain.member.entity.Member;
-import com.opensource.hongroaddong.global.entity.BaseEntity;
+import com.opensource.hongroaddong.domain.common.BaseEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
