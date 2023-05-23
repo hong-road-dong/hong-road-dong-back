@@ -10,6 +10,7 @@ public enum ErrorCode {
 
 	// 400 BAD_REQUEST: 잘못된 요청
 	BAD_REQUEST(HttpStatus.BAD_REQUEST, "C-0000", "Bad Request"),
+	MAX_UPLOAD_SIZE_EXCEED(HttpStatus.BAD_REQUEST, "U-0000", "Upload File Size Exceeded"),
 
 	// 404 NOT_FOUND: 리소스를 찾을 수 없음
 	NOT_FOUND(HttpStatus.NOT_FOUND, "C-0001", "Not Found the Contents"),

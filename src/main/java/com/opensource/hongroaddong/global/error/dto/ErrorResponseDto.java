@@ -1,10 +1,12 @@
 package com.opensource.hongroaddong.global.error.dto;
 
+import lombok.Builder;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
 
 @Getter
+@Builder
 public class ErrorResponseDto {
 	private final LocalDateTime timestamp = LocalDateTime.now();
 	private final int status;
