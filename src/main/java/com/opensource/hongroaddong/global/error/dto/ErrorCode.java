@@ -19,7 +19,7 @@ public enum ErrorCode {
 
 	// 500 INTERNAL_SERVER_ERROR: 내부 서버 오류
 	INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "C-0003", "Internal Server Error"),
-	MAX_UPLOAD_SIZE_EXCEED(HttpStatus.INTERNAL_SERVER_ERROR, "F-0000", "File Upload Size Exceeded"),
+	FILE_MAX_UPLOAD_SIZE_EXCEED(HttpStatus.INTERNAL_SERVER_ERROR, "F-0000", "File Upload Size Exceeded"),
 	FILE_UPLOAD_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "F-0001", "File Upload Error");
 
 	private final HttpStatus status;

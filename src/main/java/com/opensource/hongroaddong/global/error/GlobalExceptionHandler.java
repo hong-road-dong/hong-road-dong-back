@@ -42,13 +42,13 @@ public class GlobalExceptionHandler {
 			final HttpServletRequest request) {
 		log.error("MaxUploadSizeExceededException: {} {}", e.getMessage(), request.getRequestURL());
 		ErrorResponseDto errorResponseDto = ErrorResponseDto.builder()
-				.code(ErrorCode.MAX_UPLOAD_SIZE_EXCEED.getCode())
-				.status(ErrorCode.MAX_UPLOAD_SIZE_EXCEED.getStatus().value())
-				.error(ErrorCode.MAX_UPLOAD_SIZE_EXCEED.getStatus().name())
+				.code(ErrorCode.FILE_MAX_UPLOAD_SIZE_EXCEED.getCode())
+				.status(ErrorCode.FILE_MAX_UPLOAD_SIZE_EXCEED.getStatus().value())
+				.error(ErrorCode.FILE_MAX_UPLOAD_SIZE_EXCEED.getStatus().name())
 				.message(e.getMessage()).build();
 
 		return ResponseEntity
-				.status(ErrorCode.MAX_UPLOAD_SIZE_EXCEED.getStatus().value())
+				.status(ErrorCode.FILE_MAX_UPLOAD_SIZE_EXCEED.getStatus().value())
 				.body(errorResponseDto);
 	}
 }
