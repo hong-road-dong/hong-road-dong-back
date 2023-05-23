@@ -33,7 +33,7 @@ public class Item extends BaseEntity {
     @JoinColumn(name = "car_id")
     private Car car;
 
-    @OneToMany(mappedBy = "video", fetch = LAZY, cascade = ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "item", fetch = LAZY, cascade = ALL, orphanRemoval = true)
     private Set<Timestamp> timestamps = new HashSet<>();
 
 }
