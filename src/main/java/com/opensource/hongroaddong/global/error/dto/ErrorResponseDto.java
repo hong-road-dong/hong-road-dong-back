@@ -6,7 +6,6 @@ import lombok.Getter;
 import java.time.LocalDateTime;
 
 @Getter
-@Builder
 public class ErrorResponseDto {
 	private final LocalDateTime timestamp = LocalDateTime.now();
 	private final int status;
@@ -19,5 +18,13 @@ public class ErrorResponseDto {
 		this.error = errorCode.getStatus().name();
 		this.code = errorCode.getCode();
 		this.message = errorCode.getMessage();
+	}
+
+	@Builder
+	public ErrorResponseDto(int status, String error, String code, String message) {
+		this.status = status;
+		this.error = error;
+		this.code = code;
+		this.message = message;
 	}
 }
