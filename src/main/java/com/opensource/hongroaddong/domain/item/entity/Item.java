@@ -20,6 +20,8 @@ public class Item extends BaseEntity {
 
     private String content;
 
+    private int drivingDegree;
+
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
