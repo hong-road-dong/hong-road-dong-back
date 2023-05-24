@@ -43,9 +43,7 @@ public class Member extends BaseEntity {
     @Length(max = 24)
     private String nickname;
 
-    private Double manners;
-    private Double sensibility;
-    private Double safety;
+    private Double drivingDegree;
 
     @OneToMany(mappedBy = "member", fetch = LAZY, cascade = ALL, orphanRemoval = true)
     private Set<Car> cars = new HashSet<>();
