@@ -32,9 +32,9 @@ public class S3Service {
     public String uploadFile(MultipartFile multipartFile) throws IOException {
         validateFileExists(multipartFile);
 
-        String fileName = fileNameStrategy.encodeName(multipartFile);
+        var fileName = fileNameStrategy.encodeName(multipartFile);
 
-        String url = putS3(multipartFile, fileName);
+        var url = putS3(multipartFile, fileName);
 
         return url;
     }
