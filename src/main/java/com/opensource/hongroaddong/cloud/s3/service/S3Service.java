@@ -4,7 +4,6 @@ import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
-import com.opensource.hongroaddong.cloud.s3.dto.VideoResponseDto;
 import com.opensource.hongroaddong.cloud.s3.util.FileNameStrategy;
 import com.opensource.hongroaddong.global.error.dto.ErrorCode;
 import com.opensource.hongroaddong.global.error.exception.common.BusinessException;
@@ -30,15 +29,18 @@ public class S3Service {
     @Value("${spring.servlet.multipart.max-file-size}")
     private String maxFileSize;
 
-    public VideoResponseDto uploadFile(MultipartFile multipartFile) throws IOException {
+    public String uploadFile(MultipartFile multipartFile) throws IOException {
         validateFileExists(multipartFile);
+
         String fileName = fileNameStrategy.encodeName(multipartFile);
+
         String url = putS3(multipartFile, fileName);
-        return new VideoResponseDto(url, LocalDateTime.now());  // TODO: 시간 전달할 때 DB로부터 전달하기
+
+        return url;
     }
 
-    private void validateFileExists(MultipartFile multipartFile) {
-        if (multipartFile.isEmpty()) {
+    private void validateFileExists(MultipartFile uploadFile) {
+        if (uploadFile.isEmpty()) {
             throw new BusinessException(ErrorCode.FILE_EMPTY_ERROR);
         }
     }
