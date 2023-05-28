@@ -1,6 +1,7 @@
 package com.opensource.hongroaddong.domain.video.service;
 
 import com.opensource.hongroaddong.cloud.s3.service.S3Service;
+import com.opensource.hongroaddong.domain.member.service.MemberService;
 import com.opensource.hongroaddong.domain.video.dto.request.VideoRequestDto;
 import com.opensource.hongroaddong.domain.video.dto.response.VideoResponseDto;
 import com.opensource.hongroaddong.domain.video.entity.Video;
@@ -16,11 +17,12 @@ import java.io.IOException;
 @Service
 @RequiredArgsConstructor
 public class VideoService {
-
     private final S3Service s3Service;
+    private final MemberService memberService;
     private final VideoRepository videoRepository;
 
     public VideoResponseDto uploadVideo(VideoRequestDto requestDto, MultipartFile uploadFile) throws IOException {
+        var member = memberService.findMember(requestDto.getMemberId());
         var timestamp = requestDto.getTimestamp();
         var url = s3Service.uploadFile(uploadFile);
         var video = Video.builder()
