@@ -3,6 +3,7 @@ package com.opensource.hongroaddong.domain.member.entity;
 import com.opensource.hongroaddong.domain.car.entity.Car;
 import com.opensource.hongroaddong.domain.item.entity.Item;
 import com.opensource.hongroaddong.domain.common.BaseEntity;
+import com.opensource.hongroaddong.domain.video.entity.Video;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
@@ -50,5 +51,8 @@ public class Member extends BaseEntity {
 
     @OneToMany(mappedBy = "member", fetch = LAZY, cascade = ALL, orphanRemoval = true)
     private Set<Item> items = new HashSet<>();
+
+    @OneToMany(mappedBy = "member", fetch = LAZY, cascade = ALL, orphanRemoval = true)
+    private Set<Video> videos = new HashSet<>();
 
 }
