@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import static com.opensource.hongroaddong.global.error.dto.ErrorCode.*;
 
-@Slf4j
 @RequiredArgsConstructor
 @Service
 public class MemberService {
@@ -20,7 +19,6 @@ public class MemberService {
     public void updateDrivingDegree(Member member, int drivingDegree) {
         var degree = (drivingDegree - 50) / 100.0;
         member.updateDrivingDegree(degree);
-        log.info("member.updateDrivingDegree(degree): {}", degree);
         memberRepository.save(member);
     }
 
