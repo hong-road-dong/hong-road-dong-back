@@ -5,6 +5,7 @@ import com.opensource.hongroaddong.domain.member.entity.Member;
 import com.opensource.hongroaddong.domain.common.BaseEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -13,6 +14,7 @@ import static jakarta.persistence.CascadeType.ALL;
 import static jakarta.persistence.FetchType.LAZY;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
+@Getter
 @Entity
 public class Car extends BaseEntity {
 
@@ -22,7 +24,7 @@ public class Car extends BaseEntity {
     private Long id;
 
     @NotNull
-    private int number;
+    private String carNumber;
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "member_id")

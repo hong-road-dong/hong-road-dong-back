@@ -5,11 +5,16 @@ import com.opensource.hongroaddong.domain.common.BaseEntity;
 import com.opensource.hongroaddong.domain.member.entity.Member;
 import com.opensource.hongroaddong.domain.video.entity.Video;
 import jakarta.persistence.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import static jakarta.persistence.CascadeType.ALL;
 import static jakarta.persistence.FetchType.LAZY;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
+@NoArgsConstructor
+@Getter
 @Entity
 public class Item extends BaseEntity {
 
@@ -18,7 +23,7 @@ public class Item extends BaseEntity {
     @Column(name = "item_id")
     private Long id;
 
-    private String content;
+    private String comment;
 
     private int drivingDegree;
 
@@ -33,5 +38,14 @@ public class Item extends BaseEntity {
     @OneToOne(fetch = LAZY, cascade = ALL)
     @JoinColumn(name = "video_id")
     private Video video;
+
+    @Builder
+    public Item(String comment, int drivingDegree, Member member, Car car, Video video) {
+        this.comment = comment;
+        this.drivingDegree = drivingDegree;
+        this.member = member;
+        this.car = car;
+        this.video = video;
+    }
 
 }

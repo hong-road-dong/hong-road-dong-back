@@ -55,4 +55,8 @@ public class Member extends BaseEntity {
     @OneToMany(mappedBy = "member", fetch = LAZY, cascade = ALL, orphanRemoval = true)
     private Set<Video> videos = new HashSet<>();
 
+    public void updateDrivingDegree(double degree) {
+        this.drivingDegree += degree;
+    }
+
 }
