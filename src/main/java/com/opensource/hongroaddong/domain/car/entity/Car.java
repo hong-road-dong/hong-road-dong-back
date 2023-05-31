@@ -22,7 +22,7 @@ public class Car extends BaseEntity {
     private Long id;
 
     @NotNull
-    private int number;
+    private String number;
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "member_id")
