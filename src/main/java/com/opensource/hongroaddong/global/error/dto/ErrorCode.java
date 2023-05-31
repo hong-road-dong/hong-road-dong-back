@@ -26,6 +26,9 @@ public enum ErrorCode {
 	// CAR
 	CAR_NOT_FOUND(HttpStatus.NOT_FOUND, "C-0000", "Not Found Car"),
 
+	// VIDEO
+	VIDEO_NOT_FOUND(HttpStatus.NOT_FOUND, "C-0000", "Not Found Video"),
+
 	// FILE
 	FILE_EMPTY_ERROR(HttpStatus.BAD_REQUEST, "F-0000", "File Empty Error"),
 	FILE_UPLOAD_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "F-0001", "File Upload Error"),
