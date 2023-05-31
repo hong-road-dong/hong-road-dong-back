@@ -10,6 +10,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import static jakarta.persistence.CascadeType.ALL;
+import static jakarta.persistence.FetchType.EAGER;
 import static jakarta.persistence.FetchType.LAZY;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
@@ -31,11 +32,11 @@ public class Item extends BaseEntity {
     @JoinColumn(name = "member_id")
     private Member member;
 
-    @ManyToOne(fetch = LAZY)
+    @ManyToOne(fetch = EAGER)
     @JoinColumn(name = "car_id")
     private Car car;
 
-    @OneToOne(fetch = LAZY, cascade = ALL)
+    @OneToOne(fetch = EAGER, cascade = ALL)
     @JoinColumn(name = "video_id")
     private Video video;
 
