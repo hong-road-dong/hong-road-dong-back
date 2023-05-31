@@ -34,8 +34,9 @@ public class Video extends BaseEntity {
     private Member member;
 
     @Builder
-    public Video(String url, LocalDateTime timestamp) {
+    public Video(String url, LocalDateTime timestamp, Member member) {
         this.url = url;
         this.timestamp = timestamp;
+        this.member = member;
     }
 }

@@ -26,6 +26,7 @@ public class VideoService {
         var timestamp = requestDto.getTimestamp();
         var url = s3Service.uploadFile(uploadFile);
         var video = Video.builder()
+                .member(member)
                 .timestamp(timestamp)
                 .url(url)
                 .build();
