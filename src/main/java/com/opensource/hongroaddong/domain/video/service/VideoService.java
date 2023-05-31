@@ -37,4 +37,13 @@ public class VideoService {
         return VideoResponseDto.from(saved);
     }
 
+    public List<VideoResponseDto> getVideos(Long memberId) {
+        var member = memberService.findMember(memberId);
+        var response = videoRepository.findAllByMember(member)
+                .stream()
+                .map(VideoResponseDto::from)
+                .toList();
+        return response;
+    }
+
 }
