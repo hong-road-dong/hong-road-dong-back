@@ -1,5 +1,6 @@
 package com.opensource.hongroaddong.global.error.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -7,6 +8,11 @@ import java.time.LocalDateTime;
 
 @Getter
 public class ErrorResponseDto {
+	@JsonFormat(
+			shape = JsonFormat.Shape.STRING,
+			pattern = "yyyy-MM-dd HH:mm:ss",
+			locale = "Asia/Seoul"
+	)
 	private final LocalDateTime timestamp = LocalDateTime.now();
 	private final int status;
 	private final String error;
