@@ -18,7 +18,7 @@ public class Item extends BaseEntity {
     @Column(name = "item_id")
     private Long id;
 
-    private String content;
+    private String comment;
 
     private int drivingDegree;
 
