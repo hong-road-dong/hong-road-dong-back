@@ -33,4 +33,8 @@ public class Car extends BaseEntity {
     @OneToMany(mappedBy = "car", fetch = LAZY, cascade = ALL, orphanRemoval = true)
     Set<Item> items = new HashSet<>();
 
+    public boolean ownerEquals(Member member) {
+        return this.member.equals(member);
+    }
+
 }
