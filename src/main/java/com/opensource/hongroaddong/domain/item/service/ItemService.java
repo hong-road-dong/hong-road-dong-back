@@ -28,6 +28,8 @@ public class ItemService {
         var car = carService.findCar(requestDto.getCarNumber());
         var video = videoService.findVideo(requestDto.getVideoId());
 
+        memberService.updateDrivingDegree(car.getMember(), drivingDegree);
+
         var item = Item.builder()
                 .comment(comment)
                 .drivingDegree(drivingDegree)
@@ -38,7 +40,6 @@ public class ItemService {
 
         var saved = itemRepository.save(item);
         return ItemResponseDto.from(saved);
-
     }
 
 }
