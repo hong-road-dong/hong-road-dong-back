@@ -29,6 +29,9 @@ public enum ErrorCode {
 	// VIDEO
 	VIDEO_NOT_FOUND(HttpStatus.NOT_FOUND, "C-0000", "Not Found Video"),
 
+	// ITEM
+	CAR_MEMBER_AND_MEMBER_CANNOT_MATCH(HttpStatus.BAD_REQUEST, "I-0000", "Car member and Member Cannot Match"),
+
 	// FILE
 	FILE_EMPTY_ERROR(HttpStatus.BAD_REQUEST, "F-0000", "File Empty Error"),
 	FILE_UPLOAD_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "F-0001", "File Upload Error"),
