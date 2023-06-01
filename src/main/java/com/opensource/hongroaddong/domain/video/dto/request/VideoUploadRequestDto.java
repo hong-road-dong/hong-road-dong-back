@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Setter
 @Validated
 @ParameterObject
-public class VideoRequestDto {
+public class VideoUploadRequestDto {
         @Schema(description = "사용자 Id", example = "1")
         private Long memberId;
 

@@ -1,7 +1,7 @@
 package com.opensource.hongroaddong.domain.video.controller;
 
 import com.opensource.hongroaddong.domain.common.ResponseDto;
-import com.opensource.hongroaddong.domain.video.dto.request.VideoRequestDto;
+import com.opensource.hongroaddong.domain.video.dto.request.VideoUploadRequestDto;
 import com.opensource.hongroaddong.domain.video.dto.response.VideoResponseDto;
 import com.opensource.hongroaddong.domain.video.service.VideoService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -25,7 +25,7 @@ public class VideoController {
     @PostMapping("/upload")
     @Operation(summary = "비디오 업로드하기")
     public ResponseEntity<VideoResponseDto> uploadVideo(
-            VideoRequestDto requestDto,
+            VideoUploadRequestDto requestDto,
             @RequestPart(value = "file") MultipartFile multipartFile
     ) throws IOException {
         var response = videoService.uploadVideo(requestDto, multipartFile);
