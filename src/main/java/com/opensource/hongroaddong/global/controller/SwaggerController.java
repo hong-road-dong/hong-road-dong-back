@@ -1,4 +1,4 @@
-package com.opensource.hongroaddong.global.presentation;
+package com.opensource.hongroaddong.global.controller;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
