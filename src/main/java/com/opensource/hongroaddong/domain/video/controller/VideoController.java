@@ -6,6 +6,7 @@ import com.opensource.hongroaddong.domain.video.dto.response.VideoResponseDto;
 import com.opensource.hongroaddong.domain.video.service.VideoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,10 +26,10 @@ public class VideoController {
     @PostMapping("/upload")
     @Operation(summary = "비디오 업로드하기")
     public ResponseEntity<VideoResponseDto> uploadVideo(
-            VideoUploadRequestDto requestDto,
+            @Valid @RequestBody VideoUploadRequestDto info,
             @RequestPart(value = "file") MultipartFile multipartFile
     ) throws IOException {
-        var response = videoService.uploadVideo(requestDto, multipartFile);
+        var response = videoService.uploadVideo(info, multipartFile);
         return ResponseDto.created(response);
     }
 
