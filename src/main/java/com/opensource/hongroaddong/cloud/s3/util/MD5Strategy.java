@@ -1,10 +1,13 @@
 package com.opensource.hongroaddong.cloud.s3.util;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+
+@Primary
 
 @Component
 public class MD5Strategy implements FileNameStrategy  {

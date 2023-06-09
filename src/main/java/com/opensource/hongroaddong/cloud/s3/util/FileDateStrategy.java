@@ -1,11 +1,9 @@
 package com.opensource.hongroaddong.cloud.s3.util;
 
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 @Component
-@Primary
 public class FileDateStrategy implements FileNameStrategy {
 
     private static final String CATEGORY_PREFIX = "video";
