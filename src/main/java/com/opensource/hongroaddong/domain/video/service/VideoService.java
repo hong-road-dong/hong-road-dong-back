@@ -2,7 +2,6 @@ package com.opensource.hongroaddong.domain.video.service;
 
 import com.opensource.hongroaddong.cloud.s3.service.S3Service;
 import com.opensource.hongroaddong.domain.member.service.MemberService;
-import com.opensource.hongroaddong.domain.video.dto.request.VideoUploadRequestDto;
 import com.opensource.hongroaddong.domain.video.dto.response.VideoResponseDto;
 import com.opensource.hongroaddong.domain.video.entity.Video;
 import com.opensource.hongroaddong.domain.video.repository.VideoRepository;
@@ -14,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static com.opensource.hongroaddong.global.error.dto.ErrorCode.VIDEO_NOT_FOUND;
@@ -27,9 +27,8 @@ public class VideoService {
     private final VideoRepository videoRepository;
 
     @Transactional
-    public VideoResponseDto uploadVideo(VideoUploadRequestDto requestDto, MultipartFile uploadFile) throws IOException {
-        var member = memberService.findMember(requestDto.getMemberId());
-        var timestamp = requestDto.getTimestamp();
+    public VideoResponseDto uploadVideo(Long memberId, LocalDateTime timestamp, MultipartFile uploadFile) throws IOException {
+        var member = memberService.findMember(memberId);
         var url = s3Service.uploadFile(uploadFile);
         var video = Video.builder()
                 .member(member)
