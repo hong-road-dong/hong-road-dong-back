@@ -22,6 +22,9 @@ public record ItemResponseDto(
         @Schema(description = "자동차 번호", example = "12다4567")
         String carNumber,
 
+        @Schema(description = "자동차 번호", example = "12다4567")
+        int drivingDegree,
+
         @JsonFormat(
                 shape = JsonFormat.Shape.STRING,
                 pattern = "yyyy-MM-dd HH:mm:ss",
@@ -36,6 +39,7 @@ public record ItemResponseDto(
                 .comment(item.getComment())
                 .url(item.getVideo().getUrl())
                 .carNumber(item.getCar().getCarNumber())
+                .drivingDegree(item.getDrivingDegree())
                 .createdAt(item.getCreatedAt())
                 .build();
     }
